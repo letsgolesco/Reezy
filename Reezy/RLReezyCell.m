@@ -8,7 +8,51 @@
 
 #import "RLReezyCell.h"
 
+@interface RLReezyCell () <AVAudioRecorderDelegate>
+
+@end
+
 @implementation RLReezyCell
+
+#pragma mark - AVAudioRecorderDelegate methods
+
+-(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
+    if (flag == YES) {
+        self.hasAudio = YES;
+        self.audioPlayer = [self setupPlayerForFile:self.audioFilePath];
+    }
+}
+
+#pragma mark - Audio recorder methods
+
+- (AVAudioRecorder *) setupRecorderForFile:(NSString *)filePath {
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:filePath];
+    NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithInt:AVAudioQualityMedium],
+                              AVEncoderAudioQualityKey,
+                              [NSNumber numberWithInt:16],
+                              AVEncoderBitRateKey,
+                              [NSNumber numberWithInt:1],
+                              AVNumberOfChannelsKey,
+                              [NSNumber numberWithFloat:44100.0f],
+                              AVSampleRateKey, nil];
+    NSError *err = nil;
+    AVAudioRecorder *newRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&err];
+    newRecorder.delegate = self;
+    return newRecorder;
+}
+
+#pragma mark - Audio player methods
+
+- (AVAudioPlayer *) setupPlayerForFile:(NSString *)filePath {
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:filePath];
+    NSError *playerInitErr = nil;
+    AVAudioPlayer *newPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&playerInitErr];
+    return newPlayer;
+}
+
+
+#pragma mark - Given methods
 
 - (id)initWithFrame:(CGRect)frame
 {

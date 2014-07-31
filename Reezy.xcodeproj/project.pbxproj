@@ -20,6 +20,8 @@
 		7906A820198A9FEA00ACC302 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7906A81E198A9FEA00ACC302 /* InfoPlist.strings */; };
 		7906A822198A9FEA00ACC302 /* ReezyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7906A821198A9FEA00ACC302 /* ReezyTests.m */; };
 		7906A82D198AA09B00ACC302 /* RLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7906A82C198AA09B00ACC302 /* RLMainViewController.m */; };
+		791714C2198AE46800474063 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 791714C1198AE46800474063 /* AVFoundation.framework */; };
+		791714C5198AF72E00474063 /* RLReezyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 791714C4198AF72E00474063 /* RLReezyCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,9 @@
 		7906A821198A9FEA00ACC302 /* ReezyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReezyTests.m; sourceTree = "<group>"; };
 		7906A82B198AA09B00ACC302 /* RLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLMainViewController.h; sourceTree = "<group>"; };
 		7906A82C198AA09B00ACC302 /* RLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLMainViewController.m; sourceTree = "<group>"; };
+		791714C1198AE46800474063 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		791714C3198AF72E00474063 /* RLReezyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLReezyCell.h; sourceTree = "<group>"; };
+		791714C4198AF72E00474063 /* RLReezyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLReezyCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				791714C2198AE46800474063 /* AVFoundation.framework in Frameworks */,
 				7906A7FF198A9FEA00ACC302 /* CoreGraphics.framework in Frameworks */,
 				7906A801198A9FEA00ACC302 /* UIKit.framework in Frameworks */,
 				7906A7FD198A9FEA00ACC302 /* Foundation.framework in Frameworks */,
@@ -99,6 +105,7 @@
 		7906A7FB198A9FEA00ACC302 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				791714C1198AE46800474063 /* AVFoundation.framework */,
 				7906A7FC198A9FEA00ACC302 /* Foundation.framework */,
 				7906A7FE198A9FEA00ACC302 /* CoreGraphics.framework */,
 				7906A800198A9FEA00ACC302 /* UIKit.framework */,
@@ -114,6 +121,8 @@
 				7906A80C198A9FEA00ACC302 /* RLAppDelegate.m */,
 				7906A82B198AA09B00ACC302 /* RLMainViewController.h */,
 				7906A82C198AA09B00ACC302 /* RLMainViewController.m */,
+				791714C3198AF72E00474063 /* RLReezyCell.h */,
+				791714C4198AF72E00474063 /* RLReezyCell.m */,
 				7906A80E198A9FEA00ACC302 /* Images.xcassets */,
 				7906A803198A9FEA00ACC302 /* Supporting Files */,
 			);
@@ -246,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7906A80D198A9FEA00ACC302 /* RLAppDelegate.m in Sources */,
+				791714C5198AF72E00474063 /* RLReezyCell.m in Sources */,
 				7906A809198A9FEA00ACC302 /* main.m in Sources */,
 				7906A82D198AA09B00ACC302 /* RLMainViewController.m in Sources */,
 			);

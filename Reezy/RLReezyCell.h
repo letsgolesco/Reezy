@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import <AVFoundation/AVFoundation.h>
+
 @interface RLReezyCell : UICollectionViewCell
+
+@property (nonatomic, strong) NSString *audioFilePath;
+@property (nonatomic, assign) BOOL hasAudio;
+
+@property (nonatomic, strong) AVAudioRecorder *audioRecorder; // Should this be a weak reference? I hope it gets released after recording...
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+
+- (AVAudioRecorder *) setupRecorderForFile:(NSString *)filePath;
 
 @end

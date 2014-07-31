@@ -8,6 +8,10 @@
 
 #import "RLMainViewController.h"
 
+#import <AVFoundation/AVFoundation.h>
+
+#import "RLReezyCell.h"
+
 static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
 
 @interface RLMainViewController () <UICollectionViewDataSource>
@@ -32,14 +36,14 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
 
     // Collection View
     self.collectionView = [[UICollectionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] collectionViewLayout:layout];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELLIDENTIFIER];
+    [self.collectionView registerClass:[RLReezyCell class] forCellWithReuseIdentifier:CELLIDENTIFIER];
     self.collectionView.dataSource = self;
     self.collectionView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.collectionView];
 
-    // Gesture recognizers
+    // Gesture recognizer
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 0.1f;
+    lpgr.minimumPressDuration = 0.0f;
     [self.collectionView addGestureRecognizer:lpgr];
 }
 
@@ -48,16 +52,40 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
 - (void) handleLongPress:(UILongPressGestureRecognizer *)lpgr {
     CGPoint p = [lpgr locationInView:self.collectionView];
     NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
-    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    RLReezyCell *cell = (RLReezyCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    float diff = 20.0f;
 
-    [UIView animateWithDuration:0.1f animations:^{
-        float diff = 20.0f;
-        if (lpgr.state == UIGestureRecognizerStateBegan) {
-            cell.bounds = CGRectInset(cell.bounds, diff, diff);
-        } else if (lpgr.state == UIGestureRecognizerStateEnded) {
-            cell.bounds = CGRectInset(cell.bounds, -diff, -diff);
+    if (lpgr.state == UIGestureRecognizerStateBegan) {
+        if (!cell.hasAudio) {
+            // Record audio if none exists
+            cell.audioRecorder = [cell setupRecorderForFile:cell.audioFilePath];
+            [cell.audioRecorder prepareToRecord];
+            [cell.audioRecorder recordForDuration:10];    // 10 seconds is totally arbitrary
+        } else {
+            if (cell.audioPlayer.playing) {     // Player loves you (Fleetwood Mac joke)
+                // If player is playing, stop
+                [cell.audioPlayer stop];
+            }
+            // Play audio of cell, now that it exists
+            [cell.audioPlayer prepareToPlay];
+            [cell.audioPlayer play];
         }
-    }];
+
+        // Shrink animation
+        [UIView animateWithDuration:0.1f animations:^{
+            cell.bounds = CGRectInset(cell.bounds, diff, diff);
+        }];
+    } else if (lpgr.state == UIGestureRecognizerStateEnded) {
+        // Stop recording if you haven't already
+        if (cell.audioRecorder.recording) {
+            [cell.audioRecorder stop];
+        }
+
+        // Unshrink animation
+        [UIView animateWithDuration:0.1f animations:^{
+            cell.bounds = CGRectInset(cell.bounds, -diff, -diff);
+        }];
+    }
 }
 
 #pragma mark - Given methods
@@ -75,6 +103,14 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
 {
     [super viewDidLoad];
 
+    // Deal with AVAudioSession
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *setCategoryErr = nil;
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&setCategoryErr];
+    NSError *setActiveErr;
+    [session setActive:YES error:&setActiveErr];
+
+    // Colors yo
     self.view.backgroundColor = [UIColor blackColor];
     self.colors = [NSArray arrayWithObjects:[UIColor redColor],
                                             [UIColor greenColor],
@@ -83,7 +119,8 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
                                             [UIColor yellowColor],
                                             [UIColor cyanColor],
                                             [UIColor magentaColor],
-                                            [UIColor whiteColor], nil];
+                                            [UIColor orangeColor], nil];
+    // Make dem cells
     [self setupCollectionView];
 }
 
@@ -100,8 +137,15 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELLIDENTIFIER forIndexPath:indexPath];
+    RLReezyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELLIDENTIFIER forIndexPath:indexPath];
     cell.backgroundColor = [self.colors objectAtIndex:indexPath.item];
+
+    NSURL *docsUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSString *cellNum = [NSString stringWithFormat:@"%ld", (long)indexPath.item];
+    NSString *fileName = [cellNum stringByAppendingString:@".wav"];
+    cell.audioFilePath = [docsUrl.path stringByAppendingPathComponent:fileName];
+    cell.hasAudio = NO;
+
     return cell;
 }
 
