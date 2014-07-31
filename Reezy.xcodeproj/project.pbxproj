@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7906A7FD198A9FEA00ACC302 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7906A7FC198A9FEA00ACC302 /* Foundation.framework */; };
+		7906A7FF198A9FEA00ACC302 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7906A7FE198A9FEA00ACC302 /* CoreGraphics.framework */; };
+		7906A801198A9FEA00ACC302 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7906A800198A9FEA00ACC302 /* UIKit.framework */; };
+		7906A807198A9FEA00ACC302 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7906A805198A9FEA00ACC302 /* InfoPlist.strings */; };
+		7906A809198A9FEA00ACC302 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7906A808198A9FEA00ACC302 /* main.m */; };
+		7906A80D198A9FEA00ACC302 /* RLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7906A80C198A9FEA00ACC302 /* RLAppDelegate.m */; };
+		7906A80F198A9FEA00ACC302 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7906A80E198A9FEA00ACC302 /* Images.xcassets */; };
+		7906A816198A9FEA00ACC302 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7906A815198A9FEA00ACC302 /* XCTest.framework */; };
+		7906A817198A9FEA00ACC302 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7906A7FC198A9FEA00ACC302 /* Foundation.framework */; };
+		7906A818198A9FEA00ACC302 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7906A800198A9FEA00ACC302 /* UIKit.framework */; };
+		7906A820198A9FEA00ACC302 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7906A81E198A9FEA00ACC302 /* InfoPlist.strings */; };
+		7906A822198A9FEA00ACC302 /* ReezyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7906A821198A9FEA00ACC302 /* ReezyTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7906A819198A9FEA00ACC302 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7906A7F1198A9FEA00ACC302 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7906A7F8198A9FEA00ACC302;
+			remoteInfo = Reezy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7906A7F9198A9FEA00ACC302 /* Reezy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reezy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7906A7FC198A9FEA00ACC302 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7906A7FE198A9FEA00ACC302 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7906A800198A9FEA00ACC302 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7906A804198A9FEA00ACC302 /* Reezy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Reezy-Info.plist"; sourceTree = "<group>"; };
+		7906A806198A9FEA00ACC302 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7906A808198A9FEA00ACC302 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7906A80A198A9FEA00ACC302 /* Reezy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reezy-Prefix.pch"; sourceTree = "<group>"; };
+		7906A80B198A9FEA00ACC302 /* RLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLAppDelegate.h; sourceTree = "<group>"; };
+		7906A80C198A9FEA00ACC302 /* RLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLAppDelegate.m; sourceTree = "<group>"; };
+		7906A80E198A9FEA00ACC302 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7906A814198A9FEA00ACC302 /* ReezyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReezyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7906A815198A9FEA00ACC302 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7906A81D198A9FEA00ACC302 /* ReezyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReezyTests-Info.plist"; sourceTree = "<group>"; };
+		7906A81F198A9FEA00ACC302 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7906A821198A9FEA00ACC302 /* ReezyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReezyTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7906A7F6198A9FEA00ACC302 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7906A7FF198A9FEA00ACC302 /* CoreGraphics.framework in Frameworks */,
+				7906A801198A9FEA00ACC302 /* UIKit.framework in Frameworks */,
+				7906A7FD198A9FEA00ACC302 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7906A811198A9FEA00ACC302 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7906A816198A9FEA00ACC302 /* XCTest.framework in Frameworks */,
+				7906A818198A9FEA00ACC302 /* UIKit.framework in Frameworks */,
+				7906A817198A9FEA00ACC302 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7906A7F0198A9FEA00ACC302 = {
+			isa = PBXGroup;
+			children = (
+				7906A802198A9FEA00ACC302 /* Reezy */,
+				7906A81B198A9FEA00ACC302 /* ReezyTests */,
+				7906A7FB198A9FEA00ACC302 /* Frameworks */,
+				7906A7FA198A9FEA00ACC302 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7906A7FA198A9FEA00ACC302 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7906A7F9198A9FEA00ACC302 /* Reezy.app */,
+				7906A814198A9FEA00ACC302 /* ReezyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7906A7FB198A9FEA00ACC302 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7906A7FC198A9FEA00ACC302 /* Foundation.framework */,
+				7906A7FE198A9FEA00ACC302 /* CoreGraphics.framework */,
+				7906A800198A9FEA00ACC302 /* UIKit.framework */,
+				7906A815198A9FEA00ACC302 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7906A802198A9FEA00ACC302 /* Reezy */ = {
+			isa = PBXGroup;
+			children = (
+				7906A80B198A9FEA00ACC302 /* RLAppDelegate.h */,
+				7906A80C198A9FEA00ACC302 /* RLAppDelegate.m */,
+				7906A80E198A9FEA00ACC302 /* Images.xcassets */,
+				7906A803198A9FEA00ACC302 /* Supporting Files */,
+			);
+			path = Reezy;
+			sourceTree = "<group>";
+		};
+		7906A803198A9FEA00ACC302 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7906A804198A9FEA00ACC302 /* Reezy-Info.plist */,
+				7906A805198A9FEA00ACC302 /* InfoPlist.strings */,
+				7906A808198A9FEA00ACC302 /* main.m */,
+				7906A80A198A9FEA00ACC302 /* Reezy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7906A81B198A9FEA00ACC302 /* ReezyTests */ = {
+			isa = PBXGroup;
+			children = (
+				7906A821198A9FEA00ACC302 /* ReezyTests.m */,
+				7906A81C198A9FEA00ACC302 /* Supporting Files */,
+			);
+			path = ReezyTests;
+			sourceTree = "<group>";
+		};
+		7906A81C198A9FEA00ACC302 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7906A81D198A9FEA00ACC302 /* ReezyTests-Info.plist */,
+				7906A81E198A9FEA00ACC302 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7906A7F8198A9FEA00ACC302 /* Reezy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7906A825198A9FEA00ACC302 /* Build configuration list for PBXNativeTarget "Reezy" */;
+			buildPhases = (
+				7906A7F5198A9FEA00ACC302 /* Sources */,
+				7906A7F6198A9FEA00ACC302 /* Frameworks */,
+				7906A7F7198A9FEA00ACC302 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Reezy;
+			productName = Reezy;
+			productReference = 7906A7F9198A9FEA00ACC302 /* Reezy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7906A813198A9FEA00ACC302 /* ReezyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7906A828198A9FEA00ACC302 /* Build configuration list for PBXNativeTarget "ReezyTests" */;
+			buildPhases = (
+				7906A810198A9FEA00ACC302 /* Sources */,
+				7906A811198A9FEA00ACC302 /* Frameworks */,
+				7906A812198A9FEA00ACC302 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7906A81A198A9FEA00ACC302 /* PBXTargetDependency */,
+			);
+			name = ReezyTests;
+			productName = ReezyTests;
+			productReference = 7906A814198A9FEA00ACC302 /* ReezyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7906A7F1198A9FEA00ACC302 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Richard Lesco";
+				TargetAttributes = {
+					7906A813198A9FEA00ACC302 = {
+						TestTargetID = 7906A7F8198A9FEA00ACC302;
+					};
+				};
+			};
+			buildConfigurationList = 7906A7F4198A9FEA00ACC302 /* Build configuration list for PBXProject "Reezy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7906A7F0198A9FEA00ACC302;
+			productRefGroup = 7906A7FA198A9FEA00ACC302 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7906A7F8198A9FEA00ACC302 /* Reezy */,
+				7906A813198A9FEA00ACC302 /* ReezyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7906A7F7198A9FEA00ACC302 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7906A807198A9FEA00ACC302 /* InfoPlist.strings in Resources */,
+				7906A80F198A9FEA00ACC302 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7906A812198A9FEA00ACC302 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7906A820198A9FEA00ACC302 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7906A7F5198A9FEA00ACC302 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7906A80D198A9FEA00ACC302 /* RLAppDelegate.m in Sources */,
+				7906A809198A9FEA00ACC302 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7906A810198A9FEA00ACC302 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7906A822198A9FEA00ACC302 /* ReezyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7906A81A198A9FEA00ACC302 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7906A7F8198A9FEA00ACC302 /* Reezy */;
+			targetProxy = 7906A819198A9FEA00ACC302 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7906A805198A9FEA00ACC302 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7906A806198A9FEA00ACC302 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7906A81E198A9FEA00ACC302 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7906A81F198A9FEA00ACC302 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7906A823198A9FEA00ACC302 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7906A824198A9FEA00ACC302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7906A826198A9FEA00ACC302 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reezy/Reezy-Prefix.pch";
+				INFOPLIST_FILE = "Reezy/Reezy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7906A827198A9FEA00ACC302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reezy/Reezy-Prefix.pch";
+				INFOPLIST_FILE = "Reezy/Reezy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7906A829198A9FEA00ACC302 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Reezy.app/Reezy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reezy/Reezy-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ReezyTests/ReezyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7906A82A198A9FEA00ACC302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Reezy.app/Reezy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reezy/Reezy-Prefix.pch";
+				INFOPLIST_FILE = "ReezyTests/ReezyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7906A7F4198A9FEA00ACC302 /* Build configuration list for PBXProject "Reezy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7906A823198A9FEA00ACC302 /* Debug */,
+				7906A824198A9FEA00ACC302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7906A825198A9FEA00ACC302 /* Build configuration list for PBXNativeTarget "Reezy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7906A826198A9FEA00ACC302 /* Debug */,
+				7906A827198A9FEA00ACC302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7906A828198A9FEA00ACC302 /* Build configuration list for PBXNativeTarget "ReezyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7906A829198A9FEA00ACC302 /* Debug */,
+				7906A82A198A9FEA00ACC302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7906A7F1198A9FEA00ACC302 /* Project object */;
+}
