@@ -8,6 +8,8 @@
 
 #import "RLAppDelegate.h"
 
+#import "RLMainViewController.h"
+
 @implementation RLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -16,6 +18,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+    RLMainViewController *mvc = [[RLMainViewController alloc] init];
+    self.window.rootViewController = mvc;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
     return YES;
 }
 
