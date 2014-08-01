@@ -1,6 +1,6 @@
 #Reezy
 
-This is a cheap clone of [Keezy](www.keezy.co). I figured I'd learned enough iOS basics to throw together something with similar functionality using a collection
+This is a cheap clone of [Keezy](http://keezy.co). I figured I'd learned enough iOS basics to throw together something with similar functionality using a collection
 view, gesture recognizers, audio recording & playback. The only part of
 it that's actually better than the real Keezy is the colors. Keezy's color scheme looks like vomit.
 
