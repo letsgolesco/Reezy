@@ -1,6 +1,6 @@
 #Reezy
 
-This is a cheap clone of [Keezy](keezy.co). I figured I'd learned enough iOS basics to throw together something with similar functionality using a collection
+This is a cheap clone of [Keezy](www.keezy.co). I figured I'd learned enough iOS basics to throw together something with similar functionality using a collection
 view, gesture recognizers, audio recording & playback. The only part of
 it that's actually better than the real Keezy is the colors. Keezy's color scheme looks like vomit.
 
@@ -34,5 +34,10 @@ Things Keezy has that this doesn't (at least for now):
 Obstacles I hit and tackled without confidence:
 * I originally made only one UILongPressGestureRecognizer for the whole
   collectionView because I was under the impression that this was a good
-  pattern to follow (you make the one gesture recognizer and use the touch location to determine which cell the user's interacting with).
-  However, this only allowed for the playback of one cell's audio at a time. Playing audio from multiple cells simultaneously is a big part of why Keezy is so much fun, so I ditched the memory-efficient pattern and made separate gesture recognizers for each cell. If there's a better way to solve this issue, LET ME KNOW PLEASE.
+  pattern to follow (you make the one gesture recognizer and use the touch 
+  location to determine which cell the user's interacting with). However, 
+  this only allowed for the playback of one cell's audio at a time. 
+  Playing audio from multiple cells simultaneously is a big part of why 
+  Keezy is so much fun, so I ditched the memory-efficient pattern and made 
+  separate gesture recognizers for each cell. If there's a better way to 
+  solve this issue, LET ME KNOW PLEASE.
