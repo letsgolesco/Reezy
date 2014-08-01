@@ -40,52 +40,6 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
     self.collectionView.dataSource = self;
     self.collectionView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.collectionView];
-
-    // Gesture recognizer
-    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 0.0f;
-    [self.collectionView addGestureRecognizer:lpgr];
-}
-
-#pragma mark - Gesture recognizer handling
-
-- (void) handleLongPress:(UILongPressGestureRecognizer *)lpgr {
-    CGPoint p = [lpgr locationInView:self.collectionView];
-    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
-    RLReezyCell *cell = (RLReezyCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    float diff = 20.0f;
-
-    if (lpgr.state == UIGestureRecognizerStateBegan) {
-        if (!cell.hasAudio) {
-            // Record audio if none exists
-            cell.audioRecorder = [cell setupRecorderForFile:cell.audioFilePath];
-            [cell.audioRecorder prepareToRecord];
-            [cell.audioRecorder recordForDuration:10];    // 10 seconds is totally arbitrary
-        } else {
-            if (cell.audioPlayer.playing) {     // Player loves you (Fleetwood Mac joke)
-                // If player is playing, stop
-                [cell.audioPlayer stop];
-            }
-            // Play audio of cell, now that it exists
-            [cell.audioPlayer prepareToPlay];
-            [cell.audioPlayer play];
-        }
-
-        // Shrink animation
-        [UIView animateWithDuration:0.1f animations:^{
-            cell.bounds = CGRectInset(cell.bounds, diff, diff);
-        }];
-    } else if (lpgr.state == UIGestureRecognizerStateEnded) {
-        // Stop recording if you haven't already
-        if (cell.audioRecorder.recording) {
-            [cell.audioRecorder stop];
-        }
-
-        // Unshrink animation
-        [UIView animateWithDuration:0.1f animations:^{
-            cell.bounds = CGRectInset(cell.bounds, -diff, -diff);
-        }];
-    }
 }
 
 #pragma mark - Given methods
@@ -145,6 +99,14 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
     NSString *fileName = [cellNum stringByAppendingString:@".wav"];
     cell.audioFilePath = [docsUrl.path stringByAppendingPathComponent:fileName];
     cell.hasAudio = NO;
+
+    // Gesture recognizer
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:cell action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 0.0f;
+    lpgr.cancelsTouchesInView = NO;
+    lpgr.delaysTouchesEnded = NO;
+    lpgr.delaysTouchesBegan = YES;
+    [cell addGestureRecognizer:lpgr];
 
     return cell;
 }

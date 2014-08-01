@@ -14,6 +14,47 @@
 
 @implementation RLReezyCell
 
+#pragma mark - Gesture recognizer handling
+
+- (void) handleLongPress:(UILongPressGestureRecognizer *)lpgr {
+    float diff = 20.0f;
+
+    if (lpgr.state == UIGestureRecognizerStateBegan) {
+        if (!self.hasAudio) {
+            // Record audio if none exists
+            self.audioRecorder = [self setupRecorderForFile:self.audioFilePath];
+            [self.audioRecorder prepareToRecord];
+            [self.audioRecorder recordForDuration:10];    // 10 seconds is totally arbitrary
+        } else {
+            /*
+            if (self.audioPlayer.playing) {     // Player loves you (Fleetwood Mac joke)
+                // If player is playing, stop
+                [self.audioPlayer stop];
+            }
+             */
+            // Play audio of cell, now that it exists
+            [self.audioPlayer setCurrentTime:0];
+            [self.audioPlayer prepareToPlay];
+            [self.audioPlayer play];
+        }
+
+        // Shrink animation
+        [UIView animateWithDuration:0.1f animations:^{
+            self.bounds = CGRectInset(self.bounds, diff, diff);
+        }];
+    } else if (lpgr.state == UIGestureRecognizerStateEnded) {
+        // Stop recording if you haven't already
+        if (self.audioRecorder.recording) {
+            [self.audioRecorder stop];
+        }
+
+        // Unshrink animation
+        [UIView animateWithDuration:0.1f animations:^{
+            self.bounds = CGRectInset(self.bounds, -diff, -diff);
+        }];
+    }
+}
+
 #pragma mark - AVAudioRecorderDelegate methods
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
