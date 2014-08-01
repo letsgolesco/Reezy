@@ -18,6 +18,9 @@
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder; // Should this be a weak reference? I hope it gets released after recording...
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
+@property (nonatomic, strong) UIImageView *imageView;
+
 - (AVAudioRecorder *) setupRecorderForFile:(NSString *)filePath;
+- (void) handleLongPress:(UILongPressGestureRecognizer *)lpgr;
 
 @end

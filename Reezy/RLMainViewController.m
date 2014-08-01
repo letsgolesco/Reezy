@@ -18,6 +18,7 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *colors;
+@property (nonatomic, strong) UIImage *image;
 
 @end
 
@@ -75,6 +76,7 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
                                             [UIColor magentaColor],
                                             [UIColor orangeColor], nil];
     // Make dem cells
+    self.image = [UIImage imageNamed:@"Microphone"];
     [self setupCollectionView];
 }
 
@@ -107,6 +109,12 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
     lpgr.delaysTouchesEnded = NO;
     lpgr.delaysTouchesBegan = YES;
     [cell addGestureRecognizer:lpgr];
+
+    // Microphone image
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:self.image];
+    imageView.center = cell.contentView.center;
+    [cell addSubview:imageView];
+    cell.imageView = imageView;
 
     return cell;
 }

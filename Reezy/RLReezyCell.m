@@ -61,6 +61,7 @@
     if (flag == YES) {
         self.hasAudio = YES;
         self.audioPlayer = [self setupPlayerForFile:self.audioFilePath];
+        [self.imageView removeFromSuperview];
     }
 }
 
