@@ -8,6 +8,8 @@
 
 #import "RLReezyCell.h"
 
+static float diff = 20.0f;
+
 @interface RLReezyCell () <AVAudioRecorderDelegate>
 
 @end
@@ -16,8 +18,8 @@
 
 #pragma mark - Gesture recognizer handling
 
+/* TODO: Move shrink/unshrink animations into their own method(s)? */
 - (void) handleLongPress:(UILongPressGestureRecognizer *)lpgr {
-    float diff = 20.0f;
 
     if (lpgr.state == UIGestureRecognizerStateBegan) {
         if (!self.hasAudio) {
@@ -77,7 +79,7 @@
                               [NSNumber numberWithInt:1],
                               AVNumberOfChannelsKey,
                               [NSNumber numberWithFloat:44100.0f],
-                              AVSampleRateKey, nil];
+                              AVSampleRateKey, nil]; // change this to literal syntax?
     NSError *err = nil;
     AVAudioRecorder *newRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&err];
     newRecorder.delegate = self;
@@ -92,26 +94,5 @@
     AVAudioPlayer *newPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&playerInitErr];
     return newPlayer;
 }
-
-
-#pragma mark - Given methods
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

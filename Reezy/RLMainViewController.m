@@ -12,7 +12,7 @@
 
 #import "RLReezyCell.h"
 
-static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
+static NSString *RLReezyCellIdentifier = @"RLReezyCellIdentifier";
 
 @interface RLMainViewController () <UICollectionViewDataSource>
 
@@ -37,22 +37,13 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
 
     // Collection View
     self.collectionView = [[UICollectionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] collectionViewLayout:layout];
-    [self.collectionView registerClass:[RLReezyCell class] forCellWithReuseIdentifier:CELLIDENTIFIER];
+    [self.collectionView registerClass:[RLReezyCell class] forCellWithReuseIdentifier:RLReezyCellIdentifier];
     self.collectionView.dataSource = self;
     self.collectionView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.collectionView];
 }
 
 #pragma mark - Given methods
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -80,20 +71,15 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
     [self setupCollectionView];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - UICollectionViewDataSource
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return self.colors.count;
 }
 
+/* TODO: Ideally move as much of this code as possible into the Cell class */
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    RLReezyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELLIDENTIFIER forIndexPath:indexPath];
+    RLReezyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:RLReezyCellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [self.colors objectAtIndex:indexPath.item];
 
     NSURL *docsUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -108,6 +94,7 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
     lpgr.cancelsTouchesInView = NO;
     lpgr.delaysTouchesEnded = NO;
     lpgr.delaysTouchesBegan = YES;
+    cell.lpgr = lpgr;
     [cell addGestureRecognizer:lpgr];
 
     // Microphone image
@@ -118,16 +105,5 @@ static NSString *CELLIDENTIFIER = @"CELLIDENTIFIER";
 
     return cell;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

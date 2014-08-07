@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Richard Lesco. All rights reserved.
 //
 
+/*
+ * TODO: Kill unused methods?
+ */
+
 #import "RLAppDelegate.h"
 
 #import "RLMainViewController.h"
